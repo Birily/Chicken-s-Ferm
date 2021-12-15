@@ -1,7 +1,5 @@
 package com.beginner;
 
-import java.sql.SQLOutput;
-
 public class Strings {
 
     public static void main(String[] args) {
