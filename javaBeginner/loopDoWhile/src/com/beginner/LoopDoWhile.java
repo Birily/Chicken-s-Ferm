@@ -10,6 +10,7 @@ public class LoopDoWhile {
         int printNum;
 
         System.out.println("Загадал случайное число от 0 до 10");
+        System.out.println("Попробуй угадай");
         do {
             Scanner scanner = new Scanner(System.in);
             if(scanner.hasNextInt()){
