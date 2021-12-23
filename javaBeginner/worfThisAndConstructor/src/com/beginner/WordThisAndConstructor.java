@@ -3,6 +3,8 @@ package com.beginner;
 public class WordThisAndConstructor {
 
     public static void main(String[] args) {
+
+        System.out.println("НАПОМИНАЮ ЧТО ЛЮДИ В МОЕЙ МЕТАВСЕЛЕННОЙ НЕ ЖИВУТ БОЛЬШЕ "+Human.EDGEAGE+" ЛЕТ!!!!");
         System.out.println("All humans in console is "+Human.getCounter());
         Human human1 = new Human();
         human1.hi();
@@ -19,6 +21,7 @@ class Human{
     private String name;
     private int age;
     private static int counter;
+    public static final int EDGEAGE = 120;
 
     public Human(){
         System.out.println("Hi, from default constructor");
