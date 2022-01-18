@@ -14,6 +14,7 @@ public class Main {
         while (scanner.hasNextLine()) {
             System.out.println(scanner.nextLine());
         }
+        scanner.close();
 
     }
 }
