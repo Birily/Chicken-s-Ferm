@@ -7,9 +7,9 @@ public class ReadObject {
 
     public static void main(String[] args) {
 
-        try {
-            FileInputStream fis = new FileInputStream("people.bin");
-            ObjectInputStream ois = new ObjectInputStream(fis);
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("people.bin"))){
+            //FileInputStream fis = new FileInputStream("people.bin");
+            //ObjectInputStream ois = new ObjectInputStream(fis);
 
             //int personCount = ois.readInt();
             //Person[] people = new Person[personCount];
@@ -22,7 +22,7 @@ public class ReadObject {
 
             System.out.println(Arrays.toString(people));
 
-            ois.close();
+            //ois.close();
 
         } catch (IOException e) {
             e.printStackTrace();

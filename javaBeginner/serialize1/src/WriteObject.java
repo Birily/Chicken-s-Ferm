@@ -8,9 +8,9 @@ public class WriteObject {
 
         Person[] people = {new Person(1, "Nick"), new Person(2, "Mike"), new Person(3,"Sasha")};
 
-        try {
-            FileOutputStream fos = new FileOutputStream("people.bin");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("people.bin"))){
+            //FileOutputStream fos = new FileOutputStream("people.bin");
+            //ObjectOutputStream oos = new ObjectOutputStream(fos);
 
             //oos.writeInt(people.length);
             //for(Person person : people) {
@@ -19,7 +19,7 @@ public class WriteObject {
 
             oos.writeObject(people);
 
-            fos.close();
+            //oos.close();
 
         } catch (IOException e) {
             e.printStackTrace();
