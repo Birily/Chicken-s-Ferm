@@ -19,9 +19,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "id=" + id +
+                ": name=" + name ;
     }
 }
