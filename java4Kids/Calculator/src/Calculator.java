@@ -4,22 +4,12 @@ import java.awt.*;
 public class Calculator {
     JPanel windowContent;
     JFormattedTextField displayField;
-//    JButton button0;
-//    JButton button1;
-//    JButton button2;
-//    JButton button3;
-//    JButton button4;
-//    JButton button5;
-//    JButton button6;
-//    JButton button7;
-//    JButton button8;
-//    JButton button9;
     JButton buttonPoint;
     JButton buttonEqual;
     JButton buttonPlus;
     JButton buttonMinus;
-    JButton buttonSlash;
-    JButton buttonAsterisk;
+    JButton buttonDivine;
+    JButton buttonMultiply;
     JPanel p1;
     JPanel p2;
 
@@ -40,32 +30,20 @@ public class Calculator {
         displayField.setHorizontalAlignment(SwingConstants.RIGHT);
         windowContent.add("North",displayField);
 
-
-        Button[] numButtons = new Button[10];
-        for(int i=0; i< numButtons.length;i++){
-            numButtons[i]=new Button(String.valueOf(i));
-        }
-
-
-            //Создаём кнопки, используя конструктор класс JButton,
+        //Создаём кнопки, используя конструктор класс JButton,
         //который принимает текст кнопки в качестве параметра
 
-//        button0 = new JButton("0");
-//        button1 = new JButton("1");
-//        button2 = new JButton("2");
-//        button3 = new JButton("3");
-//        button4 = new JButton("4");
-//        button5 = new JButton("5");
-//        button6 = new JButton("6");
-//        button7 = new JButton("7");
-//        button8 = new JButton("8");
-//        button9 = new JButton("9");
+        JButton[] numButtons = new JButton[10];
+        for(int i=0; i< numButtons.length;i++){
+            numButtons[i]=new JButton(String.valueOf(i));
+        }
+
         buttonPoint = new JButton(".");
         buttonEqual = new JButton("=");
         buttonPlus = new JButton("+");
         buttonMinus = new JButton("-");
-        buttonSlash = new JButton("/");
-        buttonAsterisk = new JButton("*");
+        buttonDivine = new JButton("/");
+        buttonMultiply = new JButton("*");
 
         //Создаём панель с Grid Layout котрая содержит 12 кнопок -
         //10 кнопок с числами и кнопки с точной и знаком равно
@@ -76,19 +54,10 @@ public class Calculator {
 
         //добавляем кнопки на p1
 
-//        p1.add(button0);
-//        p1.add(button1);
-//        p1.add(button2);
-//        p1.add(button3);
-//        p1.add(button4);
-//        p1.add(button5);
-//        p1.add(button6);
-//        p1.add(button7);
-//        p1.add(button8);
-//        p1.add(button9);
-        for (Button numButton : numButtons) {
-            p1.add(numButton);
+        for(int i=1; i< numButtons.length;i++) {
+            p1.add(numButtons[i]);
         }
+        p1.add(numButtons[0]);
         p1.add(buttonPoint);
         p1.add(buttonEqual);
         
@@ -102,8 +71,8 @@ public class Calculator {
 
         p2.add(buttonPlus);
         p2.add(buttonMinus);
-        p2.add(buttonSlash);
-        p2.add(buttonAsterisk);
+        p2.add(buttonDivine);
+        p2.add(buttonMultiply);
 
         windowContent.add("East",p2);
 
@@ -119,6 +88,23 @@ public class Calculator {
         frame.pack();
         frame.setVisible(true);
 
+        //привязываем логику
+
+        CalculatorEngine calcEngine = new CalculatorEngine(this);
+
+        //задаём кнопкам действия
+
+        for (JButton numButton : numButtons){
+            numButton.addActionListener(calcEngine);
+        }
+        buttonPoint.addActionListener(calcEngine);
+        buttonEqual.addActionListener(calcEngine);
+        buttonPlus.addActionListener(calcEngine);
+        buttonMinus.addActionListener(calcEngine);
+        buttonDivine.addActionListener(calcEngine);
+        buttonMultiply.addActionListener(calcEngine);
+
+
     }
 
     public static void main(String[] args) {
@@ -126,3 +112,6 @@ public class Calculator {
     }
 
 }
+
+// блять ну я и тупой, как же я долго это делал. то отдыхал, то кодить пытался, а сёння на протяжении дня чё-то пытался натыкивал и вконце ток вкурил как с эти индексом делать
+// и потом ток через пол часа допёр КУДА этот кусок еблокода сунуть в программу:)
