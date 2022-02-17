@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class CalculatorEngine implements ActionListener {
 
@@ -25,7 +26,11 @@ public class CalculatorEngine implements ActionListener {
         // получить число из дисплея калькулятора, если он не пустой
 
         if (!"".equals(displeyFieldText)){
-            displayValue = Double.parseDouble(displeyFieldText);
+            try{
+                    displayValue = Double.parseDouble(displeyFieldText);
+            } catch (NumberFormatException e5) {
+           javax.swing.JOptionPane.showConfirmDialog(null, "Пожалуйстта введите число", "Неправильный ввод", JOptionPane.PLAIN_MESSAGE);
+            }
         }
 
         Object src = e.getSource();
